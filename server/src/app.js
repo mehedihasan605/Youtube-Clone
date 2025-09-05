@@ -24,6 +24,7 @@ import likeRouter from "./routes/like.route.js";
 import dislikeRouter from "./routes/dislike.route.js"
 import commentRouter from "./routes/comment.route.js";
 import tweetRouter from "./routes/tweet.route.js";
+import subscribeRouter from './routes/subscription.route.js';
 
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/videos", videoRouter);
@@ -31,6 +32,7 @@ app.use("/api/v1/likes", likeRouter);
 app.use("/api/v1/dislikes", dislikeRouter);
 app.use("/api/v1/comment", commentRouter);
 app.use("/api/v1/tweet", tweetRouter);
+app.use("/api/v1/subscribe", subscribeRouter);
 
 
 export { app };
