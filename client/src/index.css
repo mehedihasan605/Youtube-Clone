@@ -4,8 +4,77 @@
 @plugin "daisyui";
 
 
+
+/* light theme base */
+:root {
+  --background: #ffffff;
+  --foreground: #0f0f0f;
+  /* YouTube লাইট মোড টেক্সট */
+  --primary: #ff0000;
+  /* YouTube রেড */
+  --secondary: #f1f1f1;
+  /* লাইট গ্রে */
+  --muted: #606060;
+  /* সেকেন্ডারি টেক্সট */
+  color-scheme: light;
+}
+
+/* dark theme base */
+[data-theme="dark"] {
+  --background: #0f0f0f;
+  /* YouTube ডার্ক ব্যাকগ্রাউন্ড */
+  --foreground: #f1f1f1;
+  /* লাইট টেক্সট */
+  --primary: #ff0000;
+  --secondary: #272727;
+  /* সাইডবার ব্যাকগ্রাউন্ড */
+  --muted: #aaaaaa;
+  /* সেকেন্ডারি টেক্সট */
+  color-scheme: dark;
+}
+
+/* smooth transition (ঐচ্ছিক) */
+html {
+  transition: background-color .2s, color .2s;
+}
+
+/* Tailwind utilities + CSS variable usage */
+html,
+body,
+#root {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
 /* font */
 
-*{
+* {
   font-family: "Roboto", sans-serif;
+}
+
+/* scrollbar-hide class define */
+.scrollbar-hide {
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari, Opera */
+}
+
+.slideIn {
+  animation: slideIn 0.1s ease-in-out forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0%);
+  }
 }

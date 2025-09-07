@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useLayoutContext } from "../hooks/context/useLayoutContext";
+import { useRegister } from './../hooks/auth/useRegister';
 
 const Register = () => {
   const { setOpenLogin } = useLayoutContext()

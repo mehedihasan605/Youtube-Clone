@@ -26,7 +26,7 @@ router.route("/create-playlist").post(verifyJwt, createPlaylist);
 router
   .route("/update-playlist/:playlistId")
   .patch(upload.single("playlistImage"), verifyJwt, updatePlaylist);
-router.route("/delete-playlist/:playlistId").delete(getUserId, deletePlaylist);
+router.route("/delete-playlist/:playlistId").delete(verifyJwt, deletePlaylist);
 
 
 router

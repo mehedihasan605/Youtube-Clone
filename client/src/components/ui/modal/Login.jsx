@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router";
-import logo from "../../assets/youtube-logo.png";
+import logo from "../../../assets/youtube-logo.png";
 import { useForm } from "react-hook-form";
-import { useLogin } from "../../hooks/auth/useLogin";
-import { useLayoutContext } from "../../hooks/context/useLayoutContext";
+import { useLogin } from "../../../hooks/auth/useLogin";
+import { useLayoutContext } from "../../../hooks/context/useLayoutContext";
 
 
 const Login = () => {
