@@ -1,0 +1,18 @@
+import { useQuery } from "@tanstack/react-query";
+import { useAxiosSecure } from "../axios/useAxiosSecure";
+
+export const useGetWatchHistory = () => {
+  const axiosSecure = useAxiosSecure();
+  return useQuery({
+    queryKey: ["getUserWatchHistory"],
+    queryFn: async () => {
+      try {
+        const { data } = await axiosSecure.get(`/watched/get-watched-videos`);
+        return data.data;
+      } catch (error) {
+        console.log("Watch History", error);
+        throw error;
+      }
+    },
+  });
+};
