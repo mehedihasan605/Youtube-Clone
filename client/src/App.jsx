@@ -7,6 +7,7 @@ import Playlists from "./pages/Playlists";
 import WatchLater from "./pages/WatchLater";
 import LikedVideos from "./pages/LikedVideos";
 import HomeLayout from './pages/HomeLayout';
+import VideoDetailsPage from "./pages/VideoDetailsPage";
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path="/watch-later" element={<WatchLater />} />
           <Route path="/liked" element={<LikedVideos />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/video/:id" element={<VideoDetailsPage />} />
         </Route >
       </Routes>
     </>

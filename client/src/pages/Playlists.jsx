@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { BiChevronDown } from "react-icons/bi";
 import { useUserPlaylists } from "../hooks/playlist/useUserPlaylists";
 import { useCurrentUser } from "../hooks/user/useCurrentUser";
-import { getUpdatedLabel } from "../utils/getUpdatedLavel";
+import { getUpdatedLabel } from "../utils/getUpdatedLabel";
 import { IoList } from "react-icons/io5";
 import { Link } from "react-router";
 

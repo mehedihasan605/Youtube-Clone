@@ -3,7 +3,7 @@ import { TfiDownload } from "react-icons/tfi";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { MdOutlineSort } from "react-icons/md";
 import { durationFormat } from "../../utils/durationFormat";
-import { getUpdatedLabel } from "./../../utils/getUpdatedLavel";
+import { getUpdatedLabel } from "../../utils/getUpdatedLabel";
 import Loading from "../ui/loading/Loading";
 import { AiOutlineClose } from "react-icons/ai";
 import WatchLaterSort from "../ui/dropdown/WatchLaterSort";
