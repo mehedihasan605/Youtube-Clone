@@ -9,6 +9,8 @@ import LikedVideos from "./pages/LikedVideos";
 import HomeLayout from './pages/HomeLayout';
 import VideoDetailsPage from "./pages/VideoDetailsPage";
 import ProfilePage from './pages/ProfilePage';
+import TweetDetails from "./pages/TweetDetails";
+import PlaylistDetails from "./pages/PlaylistDetails";
 
 
 function App() {
@@ -27,6 +29,8 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/video/:id" element={<VideoDetailsPage />} />
           <Route path="/channal/:userName" element={<ProfilePage />} />
+          <Route path="/playlist/:playlistId" element={<PlaylistDetails />} />
+          <Route path="/tweet/:tweetId" element={<TweetDetails/>} />
         </Route >
       </Routes>
     </>
