@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useLayoutContext } from "../hooks/context/useLayoutContext";
 import { useRegister } from './../hooks/auth/useRegister';
+import logo from "../assets/youtube-logo.png"
 
 const Register = () => {
   const { setOpenLogin } = useLayoutContext()

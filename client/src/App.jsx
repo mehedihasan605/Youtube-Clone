@@ -8,6 +8,7 @@ import WatchLater from "./pages/WatchLater";
 import LikedVideos from "./pages/LikedVideos";
 import HomeLayout from './pages/HomeLayout';
 import VideoDetailsPage from "./pages/VideoDetailsPage";
+import ProfilePage from './pages/ProfilePage';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path="/liked" element={<LikedVideos />} />
           <Route path="/register" element={<Register />} />
           <Route path="/video/:id" element={<VideoDetailsPage />} />
+          <Route path="/channal/:userName" element={<ProfilePage />} />
         </Route >
       </Routes>
     </>
