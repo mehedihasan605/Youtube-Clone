@@ -69,6 +69,12 @@ A full-stack YouTube clone built with a React client and an Express server. The 
 
 ## 🚀 Getting Started
 
+### 🔹 Prerequisites
+
+- Node.js 18+
+- MongoDB instance
+- Cloudinary account (if using media uploads)
+
 ### 🔹 Client Setup
 
 1. Optionally set API base URL in `client/src/hooks/axios/useAxiosPublic.js` and
@@ -76,36 +82,40 @@ A full-stack YouTube clone built with a React client and an Express server. The 
 
 2. Dependencies (from `client/package.json`):
 
-   - @tailwindcss/vite ^4.1.11
-   - @tanstack/react-query ^5.83.0
-   - antd ^5.26.7
-   - axios ^1.10.0
-   - date-fns ^4.1.0
-   - dayjs ^1.11.13
-   - lucide-react ^0.536.0
-   - prop-types ^15.8.1
-   - react ^19.1.0
-   - react-dom ^19.1.0
-   - react-hook-form ^7.60.0
-   - react-hot-toast ^2.5.2
-   - react-icons ^5.5.0
-   - react-intersection-observer ^9.16.0
-   - react-router ^7.6.3
-   - sweetalert2 ^11.22.4
-   - tailwindcss ^4.1.11
+```bash
+   @tailwindcss/vite ^4.1.11
+   @tanstack/react-query ^5.83.0
+   antd ^5.26.7
+   axios ^1.10.0
+   date-fns ^4.1.0
+   dayjs ^1.11.13
+   lucide-react ^0.536.0
+   prop-types ^15.8.1
+   react ^19.1.0
+   react-dom ^19.1.0
+   react-hook-form ^7.60.0
+   react-hot-toast ^2.5.2
+   react-icons ^5.5.0
+   react-intersection-observer ^9.16.0
+   react-router ^7.6.3
+   sweetalert2 ^11.22.4
+   tailwindcss ^4.1.11
+```
 
-   DevDependencies:
+DevDependencies:
 
-   - @eslint/js ^9.25.0
-   - @types/react ^19.1.2
-   - @types/react-dom ^19.1.2
-   - @vitejs/plugin-react ^4.4.1
-   - daisyui ^5.0.46
-   - eslint ^9.25.0
-   - eslint-plugin-react-hooks ^5.2.0
-   - eslint-plugin-react-refresh ^0.4.19
-   - globals ^16.0.0
-   - vite ^6.3.5
+```bash
+@eslint/js ^9.25.0
+@types/react ^19.1.2
+@types/react-dom ^19.1.2
+@vitejs/plugin-react ^4.4.1
+daisyui ^5.0.46
+eslint ^9.25.0
+eslint-plugin-react-hooks ^5.2.0
+eslint-plugin-react-refresh ^0.4.19
+globals ^16.0.0
+vite ^6.3.5
+```
 
 3. Install and run:
 
@@ -117,12 +127,6 @@ npm run dev
 
 The client runs on Vite (typically `http://localhost:5173`). Ensure the server
 CORS origin allows this URL.
-
-### 🔹 Prerequisites
-
-- Node.js 18+
-- MongoDB instance
-- Cloudinary account (if using media uploads)
 
 ### 🔹 Server Setup
 
@@ -142,20 +146,24 @@ CORS origin allows this URL.
 
 2. Dependencies (from `server/package.json`):
 
-   - bcrypt ^6.0.0
-   - cloudinary ^2.6.1
-   - cookie-parser ^1.4.7
-   - cors ^2.8.5
-   - dotenv ^16.5.0
-   - express ^5.1.0
-   - jsonwebtoken ^9.0.2
-   - mongoose ^8.15.1
-   - mongoose-aggregate-paginate-v2 ^1.1.4
-   - multer ^2.0.1
+```bash
+ bcrypt ^6.0.0
+ cloudinary ^2.6.1
+ cookie-parser ^1.4.7
+ cors ^2.8.5
+ dotenv ^16.5.0
+ express ^5.1.0
+ jsonwebtoken ^9.0.2
+ mongoose ^8.15.1
+ mongoose-aggregate-paginate-v2 ^1.1.4
+ multer ^2.0.1
+```
 
-   DevDependencies:
+DevDependencies:
 
-   - prettier ^3.5.3
+```bash
+prettier ^3.5.3
+```
 
 3. Install and run:
 
