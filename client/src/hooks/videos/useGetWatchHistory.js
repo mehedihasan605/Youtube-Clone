@@ -1,8 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import { useAxiosSecure } from "../axios/useAxiosSecure";
+import { useAuthStatus } from "../auth/useAuthStatus";
 
 export const useGetWatchHistory = () => {
   const axiosSecure = useAxiosSecure();
+  const { isAuthenticated } = useAuthStatus();
+  
   return useQuery({
     queryKey: ["getUserWatchHistory"],
     queryFn: async () => {
@@ -14,5 +17,6 @@ export const useGetWatchHistory = () => {
         throw error;
       }
     },
+     enabled: isAuthenticated,
   });
 };

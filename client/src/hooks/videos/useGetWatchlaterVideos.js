@@ -1,8 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { useAxiosSecure } from "../axios/useAxiosSecure";
+import { useAuthStatus } from "../auth/useAuthStatus";
 
 export const useGetWatchlaterVideos = (sort) => {
   const axiosSecure = useAxiosSecure();
+  const { isAuthenticated } = useAuthStatus();
 
   return useQuery({
     queryKey: ["watchlater", sort],
@@ -17,5 +19,6 @@ export const useGetWatchlaterVideos = (sort) => {
         throw error;
       }
     },
+      enabled: isAuthenticated,
   });
 };

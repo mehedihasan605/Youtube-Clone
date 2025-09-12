@@ -1,8 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { useAxiosSecure } from "../axios/useAxiosSecure";
+import { useAuthStatus } from "../auth/useAuthStatus";
 
 export const useUserPlaylists = (userId, sortBy = "createdAt") => {
   const axiosSecure = useAxiosSecure();
+  const { isAuthenticated } = useAuthStatus();
   return useQuery({
     queryKey: ["userPlaylist", userId, sortBy],
     queryFn: async () => {
@@ -16,6 +18,6 @@ export const useUserPlaylists = (userId, sortBy = "createdAt") => {
         throw error;
       }
     },
-    enabled: !!userId,
+    enabled: !!userId && isAuthenticated,
   });
 };

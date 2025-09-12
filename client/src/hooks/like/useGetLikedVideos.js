@@ -1,8 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { useAxiosSecure } from "../axios/useAxiosSecure";
+import { useAuthStatus } from "../auth/useAuthStatus";
 
 export const useGetLikedVideos = () => {
   const axiosSecure = useAxiosSecure();
+  const { isAuthenticated } = useAuthStatus();
 
   return useQuery({
     queryKey: ["getLikedVideos"],
@@ -15,6 +17,6 @@ export const useGetLikedVideos = () => {
         throw error;
       }
     },
-
+  enabled: isAuthenticated,
   });
 };

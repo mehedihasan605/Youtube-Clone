@@ -1,5 +1,6 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { useAxiosSecure } from "../axios/useAxiosSecure";
+import { useAuthStatus } from "../auth/useAuthStatus";
 
 export const useGetSubscriptionVideos = (options = {}) => {
   const {
@@ -10,8 +11,10 @@ export const useGetSubscriptionVideos = (options = {}) => {
     sortType = "dsc",
   } = options;
   const axiosSecure = useAxiosSecure();
+    const { isAuthenticated } = useAuthStatus();
 
   return useInfiniteQuery({
+
     queryKey: ["subscriptionFeeds", { page, limit, query, sortBy, sortType }],
     queryFn: async ({ pageParam = 1 }) => {
       const { data } = await axiosSecure.get(
@@ -23,9 +26,11 @@ export const useGetSubscriptionVideos = (options = {}) => {
       return data.data
 
     },
+  
     getNextPageParam: (lastPage) => {
       const { page, limit, total } = lastPage;
       return page * limit < total ? page + 1 : undefined;
     },
+    enabled: isAuthenticated,
   });
 };

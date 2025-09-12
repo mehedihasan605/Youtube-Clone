@@ -1,8 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import { useAxiosSecure } from "../axios/useAxiosSecure";
+import { useAuthStatus } from "../auth/useAuthStatus";
+
 
 export const useGetSubscribedChannel = () => {
   const axiosSecure = useAxiosSecure();
+  const { isAuthenticated } = useAuthStatus();
+  
   return useQuery({
     queryKey: ["subscribedChannel"],
     queryFn: async () => {
@@ -14,5 +18,7 @@ export const useGetSubscribedChannel = () => {
         throw error;
       }
     },
+    enabled: isAuthenticated,
   });
+
 };

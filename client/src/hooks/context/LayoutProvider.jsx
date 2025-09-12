@@ -8,7 +8,6 @@ import { useCurrentUser } from '../user/useCurrentUser';
 
 export const LayoutProvider = ({ children }) => {
   const location = useLocation();
-
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [hideSidebar, setHideSidebar] = useState(false);
   const [useSidebarVideoDetails, setUseSidebarVideoDetails] = useState(false);

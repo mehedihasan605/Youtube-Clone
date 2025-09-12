@@ -1,20 +1,22 @@
 import { useQuery } from "@tanstack/react-query";
-import { useAxiosSecure } from './../axios/useAxiosSecure';
+import { useAxiosSecure } from "../axios/useAxiosSecure";
 
 export const useCurrentUser = () => {
   const axiosSecure = useAxiosSecure();
+
   return useQuery({
     queryKey: ["user"],
     queryFn: async () => {
-      try {
-        const { data } = await axiosSecure.get("/users/current-user");
-        return data.data;
-      } catch (error) {
-        return null;
+      const { data } = await axiosSecure.get("/users/current-user");
+      return data.data;
+    },
+    retry: false,
+    refetchOnWindowFocus: false,
+    onError: (error) => {
+      if (error.response?.status === 401) {
+       
+        console.log("Unauthorized user, Please login...");
       }
     },
-    retry: false, // 401 error হলে আবার try না করুক
-    refetchOnWindowFocus: false, // ফোকাস করলে আবার fetch না করুক
-
   });
 };

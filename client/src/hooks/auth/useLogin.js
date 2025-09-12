@@ -1,11 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useLocation, useNavigate } from "react-router";
 import { useAxiosPublic } from "../axios/useAxiosPublic";
 
-
-
 export const useLogin = () => {
-
   const axiosPublic = useAxiosPublic();
   const queryClient = useQueryClient();
 
@@ -16,7 +12,7 @@ export const useLogin = () => {
       });
       return data;
     },
-    onSuccess: (res) => {
+    onSuccess: () => {
       queryClient.invalidateQueries(["user"]);
     },
     onError: (err) => {
