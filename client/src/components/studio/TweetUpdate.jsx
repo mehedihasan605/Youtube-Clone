@@ -17,10 +17,9 @@ const TweetUpdate = () => {
 
   const { mutate: updateTweet, isPending: isUpdating } = useUpdateTweet(id);
   const { data: tweet } = useGetTweetById(id);
-  console.log(tweet);
+
   const link = `http://localhost:5173/tweet/${id}`;
 
-  console.log(textContent);
 
   const handleCopy = () => {
     navigator.clipboard.writeText(link).then(() => {

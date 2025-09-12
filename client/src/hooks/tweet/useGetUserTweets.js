@@ -11,7 +11,7 @@ export const useGetUserTweets = () => {
         const { data } = await axiosSecure.get('/tweet/user-tweets');
         return data.data;
       } catch (error) {
-        console.log('Tweets Error', error);
+        console.error('Tweets Error', error);
         throw error;
       }
     },

@@ -8,7 +8,7 @@ const getWatchlaterVideos = asyncHandler(async (req, res) => {
   const userId = req.user._id;
 
   const { sort } = req.query;
-  console.log(sort);
+  
 
   let sortCondition = {};
 
@@ -120,7 +120,7 @@ const getWatchlaterVideos = asyncHandler(async (req, res) => {
       .json(new apiResponse(200, "watchLater Videos Not Found"));
   }
 
-  console.log(getAllVideos);
+  
 
   res
 

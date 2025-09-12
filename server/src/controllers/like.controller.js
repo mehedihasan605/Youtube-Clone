@@ -162,7 +162,7 @@ const getLikedVideos = asyncHandler(async (req, res) => {
       },
     },
   ]);
-  console.log(likeVideos);
+  
   res.status(200).json(new apiResponse(200, likeVideos[0], "like videos"));
 });
 

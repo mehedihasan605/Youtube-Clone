@@ -12,7 +12,7 @@ export const useChannelDashboardVideos = (query = '') => {
         );
         return data.data;
       } catch (error) {
-        console.log('Channel Stats Error', error);
+        console.error('Channel Stats Error', error);
         throw error;
       }
     },

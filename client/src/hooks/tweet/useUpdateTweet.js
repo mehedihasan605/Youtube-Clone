@@ -8,7 +8,7 @@ export const useUpdateTweet = tweetId => {
 
   return useMutation({
     mutationFn: async content => {
-      console.log(content);
+    
       const { data } = await axiosSecure.patch(
         `/tweet/update-tweets/${tweetId}`,
         {
@@ -20,7 +20,6 @@ export const useUpdateTweet = tweetId => {
     },
     onSuccess: res => {
       toast.success(res.message);
-      console.log(res);
       queryClient.invalidateQueries(['getUserTweets']);
     },
     onError: err => {

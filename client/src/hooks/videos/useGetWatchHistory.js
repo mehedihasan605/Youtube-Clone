@@ -10,7 +10,7 @@ export const useGetWatchHistory = () => {
         const { data } = await axiosSecure.get(`/watched/get-watched-videos`);
         return data.data;
       } catch (error) {
-        console.log("Watch History", error);
+        console.error("Watch History", error);
         throw error;
       }
     },

@@ -19,7 +19,7 @@ export const useGetSubscriptionVideos = (options = {}) => {
         params: { page: pageParam, limit, query, sortBy, sortType },
       }
       );
-      console.log(data)
+      
       return data.data
 
     },

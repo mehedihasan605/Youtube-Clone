@@ -13,7 +13,7 @@ export const useGetWatchlaterVideos = (sort) => {
         );
         return data.data;
       } catch (error) {
-        console.log("Watchlater Error", error);
+        console.error("Watchlater Error", error);
         throw error;
       }
     },

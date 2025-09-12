@@ -15,7 +15,7 @@ export const useGetTweetById = (tweetId) => {
         );
         return data.data;
       } catch (error) {
-        console.log("Tweets Error", error);
+        console.error("Tweets Error", error);
         throw error;
       }
     },

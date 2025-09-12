@@ -9,7 +9,7 @@ export const useViewCount = () => {
       return data;
     },
     onSuccess: (res) => {
-      console.log(res);
+     
     },
     onError: (err) => {
       console.error(err || "Views Count Error");

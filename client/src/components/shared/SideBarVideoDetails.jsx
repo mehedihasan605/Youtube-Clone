@@ -47,10 +47,7 @@ const SideBarVideoDetails = () => {
         <button
           className="p-2 rounded-full cursor-pointer"
           onClick={() =>
-            setSidebarOpen((prv) => {
-              (prv === false ? true : false);
-              console.log('clicked')
-            })
+            setSidebarOpen((prv) => (prv === false ? true : false))
           }
         >
           <HiOutlineBars3 size={25} />

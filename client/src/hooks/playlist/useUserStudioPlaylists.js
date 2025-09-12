@@ -10,7 +10,7 @@ export const useUserStudioPlaylists = () => {
         const { data } = await axiosSecure.get(`/playlist/user-playlists`);
         return data.data;
       } catch (error) {
-        console.log('Playlists Error', error);
+        console.error('Playlists Error', error);
         throw error;
       }
     },

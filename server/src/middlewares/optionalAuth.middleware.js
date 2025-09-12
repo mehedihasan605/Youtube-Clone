@@ -10,7 +10,6 @@ export const optionalVerifyJwt = asyncHandler(async (req, _, next) => {
 
     if (!token) {
       req.user = null;
-      console.log('user nai')
       return next();
     }
 

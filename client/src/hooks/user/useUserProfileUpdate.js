@@ -15,7 +15,7 @@ export const useUserProfileUpdate = () => {
       return data;
     },
     onSuccess: (res) => {
-      console.log("Update Success", res.data);
+
       queryClient.invalidateQueries(["user"]);
 
     },

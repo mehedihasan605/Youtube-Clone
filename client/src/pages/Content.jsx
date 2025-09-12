@@ -43,7 +43,7 @@ const Content = () => {
   const { data: userVideos } = useUserVideos();
   const { data: userTweets } = useGetUserTweets();
   const { data: userPlaylists } = useUserStudioPlaylists();
-  console.log(userPlaylists);
+
   const { mutate: deleteVideo } = useDeleteVideo();
   const { mutate: deleteTweet } = useDeleteTweet();
   const { mutate: deletePlaylist } = useDeletePlaylist();

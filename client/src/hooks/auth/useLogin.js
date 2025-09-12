@@ -17,7 +17,6 @@ export const useLogin = () => {
       return data;
     },
     onSuccess: (res) => {
-      console.log("Login Success", res.data);
       queryClient.invalidateQueries(["user"]);
     },
     onError: (err) => {

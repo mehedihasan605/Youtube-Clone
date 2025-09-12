@@ -14,7 +14,6 @@ export const useRemoveVideoPlaylist = () => {
     },
     onSuccess: (res) => {
       toast.success(res.message);
-      console.log(res)
     },
     onError: (err) => {
       console.error(err || "Playlist Update failed");

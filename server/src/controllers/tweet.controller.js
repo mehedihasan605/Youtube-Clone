@@ -20,7 +20,7 @@ const createTweet = asyncHandler(async (req, res) => {
       throw new apiError(400, "Tweet must contain either content or an image");
     }
   }
-  console.log(req.file);
+ 
   let imageUrl = null;
   let tweetImageLocalPath;
 
@@ -331,7 +331,7 @@ const updateTweet = asyncHandler(async (req, res) => {
   const { tweetId } = req.params;
   const { content } = req.body;
 
-  console.log(tweetId, content)
+ 
 
   if (!isValidObjectId(tweetId)) {
     throw new apiError(404, "invalid id");

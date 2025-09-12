@@ -11,7 +11,7 @@ export const useGetAllVideo = ({ query = "", sortBy = "createdAt", sortType = "d
       const { data } = await axiosPublic.get(`/videos`, {
         params: { page: pageParam, limit: LIMIT, query, sortBy, sortType },
       });
-      console.log(data)
+    
       // backend response should be { videos: [...], total, page, limit }
       return data;
     },

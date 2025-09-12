@@ -10,7 +10,7 @@ export const useGetSubscribedChannel = () => {
         const { data } = await axiosSecure.get("/subscribe/c/subscribed");
         return data.data;
       } catch (error) {
-        console.log("trycatch error", error);
+        console.error("trycatch error", error);
         throw error;
       }
     },

@@ -14,7 +14,7 @@ export const useRemoveWatchlater = () => {
       return data;
     },
     onSuccess: (res) => {
-      console.log(res);
+      
       toast.success(res.message);
       queryClient.invalidateQueries(["watchlater"]);
     },

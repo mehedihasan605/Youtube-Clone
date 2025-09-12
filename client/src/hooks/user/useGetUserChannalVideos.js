@@ -10,7 +10,7 @@ export const useGetUserChannalVideos = (userId) => {
         const { data } = await axiosPublic.get(`/videos/userChannalVideos/${userId}`);
         return data.data;
       } catch (error) {
-        console.log("Letest & Populer & Oldest videos api Error", error);
+        console.error("Letest & Populer & Oldest videos api Error", error);
         throw error;
       }
     },

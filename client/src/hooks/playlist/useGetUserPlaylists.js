@@ -13,7 +13,7 @@ export const useGetUserPlaylists = (userId, sortBy = "createdAt") => {
         );
         return data.data;
       } catch (error) {
-        console.log("Playlists Error", error);
+        console.error("Playlists Error", error);
         throw error;
       }
     },

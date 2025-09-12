@@ -33,7 +33,7 @@ const PlaylistDetails = () => {
   const handleCloseModal = () => setModal(false);
 
   const handleVideoDelete = (videoId) => {
-    console.log(videoId)
+    
     mutate({ videoId: videoId, playlistId: playlistId })
   }
 

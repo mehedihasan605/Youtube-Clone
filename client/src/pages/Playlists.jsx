@@ -44,7 +44,7 @@ const Playlists = () => {
   }, []);
 
 
-  console.log(userPlaylists);
+  
 
   const handleOptionClick = (option) => {
     setSelectedOption(option.label);

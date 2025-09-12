@@ -11,7 +11,7 @@ export const useGetLikedVideos = () => {
         const { data } = await axiosSecure.get("/likes/liked-videos");
         return data.data;
       } catch (error) {
-        console.log("Liked Videos", error);
+        console.error("Liked Videos", error);
         throw error;
       }
     },

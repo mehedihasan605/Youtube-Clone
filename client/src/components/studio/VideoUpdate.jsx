@@ -11,7 +11,7 @@ const VideoUpdate = () => {
     description: '',
     thumbnail: '',
   });
-  console.log(data);
+
   const navigate = useNavigate();
   const { mutate: updateVideo, isPending: updateVideoLoading } =
     useUpdateVideo(id);
@@ -21,7 +21,7 @@ const VideoUpdate = () => {
   };
 
   const { data: video, isLoading } = useGetVideoId(id);
-  console.log(video);
+  
 
   const shortenUrl = (url, maxLength = 50) => {
     if (url.length <= maxLength) return url;

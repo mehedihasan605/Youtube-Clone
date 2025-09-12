@@ -51,7 +51,7 @@ const VideoDetailsPage = () => {
     isLoading: videoLoading,
     isError: videoError,
   } = useGetVideoId(id);
-  console.log(video);
+  
   const {
     data: profileDetails,
     isLoading: profileLoading,
@@ -59,7 +59,7 @@ const VideoDetailsPage = () => {
   } = useProfileDetails(video?.ownerDetails?.userName);
   const { data: videoComments, isLoading: videoCommentLoading } =
     useGetVideoComment({ videoId: id, sort });
-  console.log(videoComments);
+ 
   const {
     data: userVideos,
     isLoading: sugesstionVideoLoading,

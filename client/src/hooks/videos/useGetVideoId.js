@@ -13,7 +13,7 @@ export const useGetVideoId = (videoId) => {
         });
         return data.data;
       } catch (error) {
-        console.log("Video Details Error", error);
+        console.error("Video Details Error", error);
         throw error;
       }
     },

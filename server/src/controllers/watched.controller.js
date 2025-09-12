@@ -48,7 +48,7 @@ const getWatchedVideos = asyncHandler(async (req, res) => {
     },
   ]);
 
-  console.log(getAllVideos);
+
   if (!getAllVideos) {
     return res
       .status(200)

@@ -36,10 +36,10 @@ const PlaylistAddVideo = ({
     try {
       if (wasChecked) {
         await removeVideoPlaylist({ videoId, playlistId });
-        console.log("Removed from playlist:", playlistId);
+        
       } else {
         await addVideoPlaylist({ videoId, playlistId });
-        console.log("Added to playlist:", playlistId);
+        
       }
     } catch (error) {
       console.error("Error updating playlist:", error);

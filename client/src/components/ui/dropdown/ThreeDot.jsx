@@ -9,8 +9,8 @@ const ThreeDot = ({
   closeModal,
   openPlaylistModal,
 }) => {
-  console.count("Modal rendered");
-  console.log("Video ID:", video?._id);
+  
+ 
 
   const menuItems = [
     {

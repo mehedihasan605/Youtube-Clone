@@ -15,7 +15,7 @@ export const useProfileDetails = (userName) => {
         );
         return data.data;
       } catch (error) {
-        console.log("trycatch error", error);
+        console.error("trycatch error", error);
         throw error;
       }
     },

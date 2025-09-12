@@ -116,7 +116,7 @@ export default function PlaylistAddModal({ setPlaylist }) {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [visibility, setVisibility] = useState('Public');
-  console.log(selectedVideos);
+  
 
   const { mutateAsync: createPlaylist } = useCreatePlaylists();
   const { mutate: addVideoOnPlaylist } = useAddMultipleVideo();

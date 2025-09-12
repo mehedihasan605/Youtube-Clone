@@ -16,7 +16,7 @@ export const useGetVideoComment = ({videoId , sort}) => {
         );
         return data.data;
       } catch (error) {
-        console.log("Video Comment", error);
+        console.error("Video Comment", error);
         throw error;
       }
     },

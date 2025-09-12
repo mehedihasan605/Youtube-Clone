@@ -11,11 +11,6 @@ export const useAddVideoInHistory = () => {
       });
       return data;
     },
-    onSuccess: (res) => {
-      console.log(res);
-    },
-    onError: (err) => {
-      console.error(err || "Watch History video Added failed");
-    },
+
   });
 };

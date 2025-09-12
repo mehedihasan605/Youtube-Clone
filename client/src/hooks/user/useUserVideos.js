@@ -11,13 +11,6 @@ export const useUserVideos = () => {
       return data.data;
     },
 
-    onSuccess: data => {
-      if (data) {
-        console.log('Videos fetched successfully:', data);
-      }
-    },
-    onError: error => {
-      console.log(error);
-    },
+    
   });
 };

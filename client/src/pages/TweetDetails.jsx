@@ -37,7 +37,7 @@ const TweetDetails = ({
     sort: sort,
   });
   const { data: currentUser } = useCurrentUser();
-  console.log("tweetcomment", tweetComment);
+
   const { mutate: addTweetComment, isPending } = useCreateTweetComment();
 
   const { mutate: toggleTweetLike } = useToggleTweetLike();

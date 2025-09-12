@@ -40,7 +40,7 @@ const HomeLayout = () => {
           shouldHideSidebar
         ) {
           setUseSidebarVideoDetails(true);
-          console.log("click to profile")
+         
         }
       } else {
         setHideSidebar(false);

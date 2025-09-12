@@ -10,7 +10,7 @@ export const useGetChannelStats = () => {
         const { data } = await axiosSecure.get('/dashboard/stats');
         return data.data;
       } catch (error) {
-        console.log('Channel Stats Error', error);
+        console.error('Channel Stats Error', error);
         throw error;
       }
     },

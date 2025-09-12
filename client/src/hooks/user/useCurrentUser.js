@@ -15,15 +15,6 @@ export const useCurrentUser = () => {
     },
     retry: false, // 401 error হলে আবার try না করুক
     refetchOnWindowFocus: false, // ফোকাস করলে আবার fetch না করুক
-    onSuccess: (data) => {
-      if (data) {
-        console.log("User found:", data);
-      }
-    },
-    onError: (error) => {
-      if (error.response?.status !== 401) {
-        console.error("Unexpected error fetching user:", error);
-      }
-    },
+
   });
 };

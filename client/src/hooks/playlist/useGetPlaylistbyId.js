@@ -11,7 +11,7 @@ export const useGetPlaylistbyId = (playListId) => {
           `/playlist/c/playlistbyid/${playListId}`);
         return data.data;
       } catch (error) {
-        console.log("Playlists Error", error);
+        console.error("Playlists Error", error);
         throw error;
       }
       },

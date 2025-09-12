@@ -345,7 +345,7 @@ const updatePlaylist = asyncHandler(async (req, res) => {
   // Handle image upload if file is provided
   if (req.file) {
     playlistImageLocalPath = req.file.path;
-    console.log(playlistImageLocalPath);
+    
     try {
       const imageFile = await uploadFileOnCloudinary(playlistImageLocalPath);
 

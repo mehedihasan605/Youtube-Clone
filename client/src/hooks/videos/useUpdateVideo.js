@@ -15,7 +15,7 @@ export const useUpdateVideo = videoId => {
       return data;
     },
     onSuccess: res => {
-      console.log(res);
+  
       toast.success(res.message);
     },
     onError: err => {
