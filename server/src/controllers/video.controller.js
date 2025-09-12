@@ -258,7 +258,9 @@ const updateVideo = asyncHandler(async (req, res) => {
     throw new apiError(400, "videoId invalid");
   }
 
-  const updatedData = { title, description };
+  const updatedData = {};
+  if (title) updatedData.title = title
+  if(description) updatedData.description = description
 
   if (req.file?.path) {
     const thumbnail = await uploadFileOnCloudinary(req.file?.path);

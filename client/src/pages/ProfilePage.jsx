@@ -245,15 +245,17 @@ const ProfilePage = () => {
                   />
             )}
             </div>
-            {userTweets &&
-              userTweets.map((tweet) => (
-                <Tweet
-                  key={tweet._id}
-                  tweet={tweet}
-                  handleToggleTweetLike={handleToggleTweetLike}
-                  handleToggleTweetDislike={handleToggleTweetDislike}
-                />
-              ))}
+         <div className="space-y-3 my-2">
+              {userTweets &&
+                userTweets.map((tweet) => (
+                  <Tweet
+                    key={tweet._id}
+                    tweet={tweet}
+                    handleToggleTweetLike={handleToggleTweetLike}
+                    handleToggleTweetDislike={handleToggleTweetDislike}
+                  />
+                ))}
+         </div>
           </div>
         ) : (
             <div>

@@ -4,7 +4,7 @@ import { FaPlay } from "react-icons/fa6";
 import { HiOutlinePencilSquare } from "react-icons/hi2";
 import { RiShareForwardFill } from "react-icons/ri";
 import { useDeleteVideoFromPlaylist } from "../hooks/playlist/useDeleteVideoFromPlaylist";
-import { useEffect, useRef, useState } from "react";
+import {  useState } from "react";
 import PlaylistModal from "../components/ui/modal/PlaylistModal";
 import { formatDistanceToNow } from "date-fns";
 import { BsThreeDotsVertical } from "react-icons/bs";
@@ -14,8 +14,8 @@ import { durationFormat } from "../utils/durationFormat";
 const PlaylistDetails = () => {
   const { playlistId } = useParams();
   const [isOpenModal, setModal] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
-  const sortRef = useRef(null);
+  const [isOpen, setIsOpen] = useState(null);
+
 
   const {
     data: playList,
@@ -24,7 +24,7 @@ const PlaylistDetails = () => {
     error,
   } = useGetPlaylistbyId(playlistId);
 
-  const { name, playlistOwner, videos, description, _id } = playList;
+  const { name, playlistOwner, videos, description, _id } = playList || {};
   
 
   const { mutate, isPending } = useDeleteVideoFromPlaylist()
@@ -33,21 +33,12 @@ const PlaylistDetails = () => {
   const handleCloseModal = () => setModal(false);
 
   const handleVideoDelete = (videoId) => {
+    console.log(videoId)
     mutate({ videoId: videoId, playlistId: playlistId })
   }
 
 
 
-  // sort dropdown
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (sortRef.current && !sortRef.current.contains(event.target)) {
-        setIsOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
 
 
   if (isLoading) return <div>Loading playlist...</div>;
@@ -61,7 +52,7 @@ const PlaylistDetails = () => {
         <div className="grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {/* Left Column - Playlist Details */}
           <div className="lg:col-span-1">
-            <div className="flex min-h-[400px] lg:h-[700px] max-h-[90vh] sticky top-4 overflow-y-auto flex-col gap-3 rounded-xl bg-gradient-to-b from-teal-800 via-teal-900 to-gray-900 p-6">
+            <div className="flex min-h-[400px] lg:h-[700px] max-h-[90vh] sticky top-4 overflow-y-auto flex-col gap-3 rounded-xl bg-gradient-to-b from-teal-800 via-teal-900 to-gray-900 p-6 z-50">
       <img
         src={
           playList?.playlistImage
@@ -136,23 +127,17 @@ const PlaylistDetails = () => {
           })}
         </p>
       </div>
-      <div className="relative" ref={sortRef}>
-        <button onClick={(e) => {
-          setIsOpen(!isOpen)
-          e.stopPropagation();
-        }} className="cursor-pointer">
+      <div className="relative">
+        <button onClick={() => setIsOpen(prev => (prev === video._id ? null : video._id))} className="cursor-pointer">
           <BsThreeDotsVertical size={20} />
         </button>
         {/* Dropdown Menu */}
-        {isOpen && (
+        {isOpen && isOpen === video._id && (
           <div className="absolute right-0 mt-2 w-56 rounded-md shadow-lg z-10">
             <div className="py-1">
            
               <button
-                onClick={(e) => {
-                  handleVideoDelete(video._id)
-                  e.stopPropagation();
-                }}
+                onClick={() => handleVideoDelete(video._id)}
                 className="block px-4 py-2 text-sm cursor-pointer"
                 
               >

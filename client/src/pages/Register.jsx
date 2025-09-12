@@ -2,9 +2,11 @@ import { useForm } from "react-hook-form";
 import { useLayoutContext } from "../hooks/context/useLayoutContext";
 import { useRegister } from './../hooks/auth/useRegister';
 import logo from "../assets/youtube-logo.png"
+import { useNavigate } from 'react-router';
 
 const Register = () => {
   const { setOpenLogin } = useLayoutContext()
+    const navigate = useNavigate();
 
   const { register, handleSubmit, reset } = useForm();
   const { mutate, isPending } = useRegister();
@@ -19,7 +21,11 @@ const Register = () => {
     formData.append("coverImage", data.coverImage[0]);
 
     mutate(formData, {
-      onSuccess: () => reset(),
+      onSuccess: () => {
+        reset()
+        navigate("/")
+        setOpenLogin(true)
+      },
     });
   };
   return (

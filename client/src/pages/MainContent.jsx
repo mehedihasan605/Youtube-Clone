@@ -231,10 +231,7 @@ const MainContent = () => {
                     </button>
 
 
-                  </div>
-                </div>
-
-                {openThreeDot === video._id && (
+                    {openThreeDot === video._id && (
                   <ThreeDotModal
                     video={video}
                     watchlater={watchlater}
@@ -265,6 +262,10 @@ const MainContent = () => {
                     videoId={video._id}
                   />
                 )}
+                  </div>
+                </div>
+
+                
               </div>
             )
 
