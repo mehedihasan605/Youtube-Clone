@@ -95,17 +95,17 @@ const publishVideo = asyncHandler(async (req, res) => {
   const video = await uploadFileOnCloudinary(videoLocalPath);
   const thumbnail = await uploadFileOnCloudinary(thumbnailLocalPath);
 
-  if (!video?.url) {
+  if (!video?.secure_url) {
     throw new apiError(404, "video not uploded");
   }
 
-  if (!thumbnail?.url) {
+  if (!thumbnail?.secure_url) {
     throw new apiError(404, "video not uploded");
   }
 
   const publishVideo = await Video.create({
-    videoFile: video?.url,
-    thumbnail: thumbnail?.url,
+    videoFile: video?.secure_url,
+    thumbnail: thumbnail?.secure_url,
     title,
     description,
     duration: video?.duration,
@@ -264,8 +264,8 @@ const updateVideo = asyncHandler(async (req, res) => {
 
   if (req.file?.path) {
     const thumbnail = await uploadFileOnCloudinary(req.file?.path);
-    if (thumbnail?.url) {
-      updatedData.thumbnail = thumbnail.url;
+    if (thumbnail?.secure_url) {
+      updatedData.thumbnail = thumbnail.secure_url;
     }
   }
 

@@ -31,11 +31,11 @@ const createTweet = asyncHandler(async (req, res) => {
     try {
       const imageFile = await uploadFileOnCloudinary(tweetImageLocalPath);
 
-      if (!imageFile?.url) {
+      if (!imageFile?.secure_url) {
         throw new apiError(500, "Failed to upload image to cloudinary");
       }
 
-      imageUrl = imageFile.url;
+      imageUrl = imageFile.secure_url;
     } catch (error) {
       throw error;
     }

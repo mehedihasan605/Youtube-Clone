@@ -16,7 +16,6 @@ import { useCurrentUser } from "../../hooks/user/useCurrentUser";
 import { useLogout } from "../../hooks/auth/useLogout";
 import { Link, useNavigate } from "react-router";
 import ProfileDropDown from "../ui/dropdown/ProfileDropDown";
-import NotificationModal from "../ui/dropdown/NotificationDropDown";
 import { useLayoutContext } from "../../hooks/context/useLayoutContext";
 
 const Navbar = () => {
@@ -35,13 +34,11 @@ const Navbar = () => {
 
 
   const { data: currentUser, isLoading } = useCurrentUser();
-  const [openNotification, setNotification] = useState(false);
   const [showMobileSearch, setShowMobileSearch] = useState(false);
   const mobileSearchRef = useRef(null);
 
   const profileRef = useRef(null);
   const createRef = useRef(null);
-  const notificationRef = useRef(null);
 
   // Profile dropdown
   useEffect(() => {
@@ -65,16 +62,7 @@ const Navbar = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [setIsOpenCreate]);
 
-  // Notification dropdown
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (notificationRef.current && !notificationRef.current.contains(event.target)) {
-        setNotification(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+
 
 
 
@@ -266,20 +254,16 @@ const Navbar = () => {
             </div>
 
             {/* Notification */}
-            <div className="relative" ref={notificationRef}>
+            <div className="relative">
               <button
-                onClick={() => setNotification(true)}
                 className="p-2 cursor-pointer rounded-full relative"
               >
                 <FiBell className="w-5 h-5 sm:w-6 sm:h-6" />
-                <div className="absolute -top-1 -right-1 w-3 h-3 sm:w-4 sm:h-4 bg-red-600 rounded-full flex items-center justify-center">
-                  <span className="text-xs text-[var(--foreground)]">9</span>
+                <div className="absolute top-1 right-1 w-3 h-3 sm:w-4 sm:h-4 bg-red-600 rounded-full flex items-center justify-center">
+                  <span className="text-xs text-[var(--background)]">9</span>
                 </div>
               </button>
 
-              {openNotification && (
-                <NotificationModal onClose={setNotification} />
-              )}
             </div>
 
             {/* Profile */}

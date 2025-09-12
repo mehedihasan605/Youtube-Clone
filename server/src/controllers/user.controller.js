@@ -67,8 +67,8 @@ const registerUser = asyncHandler(async (req, res) => {
 
   const user = await User.create({
     fullName,
-    avatar: avatar.url,
-    coverImage: coverImage?.url || "",
+    avatar: avatar.secure_url,
+    coverImage: coverImage?.secure_url || "",
     email,
     password,
     userName: userName.toLowerCase(),
@@ -253,14 +253,14 @@ const updateUserAccount = asyncHandler(async (req, res) => {
   let avatar, coverImage;
   if (avatarLocalPath) {
     avatar = await uploadFileOnCloudinary(avatarLocalPath);
-    if (!avatar?.url) {
+    if (!avatar?.secure_url) {
       throw new apiError(500, "Cloudinary avatar file not uploaded");
     }
   }
 
   if (coverImageLocalPath) {
     coverImage = await uploadFileOnCloudinary(coverImageLocalPath);
-    if (!coverImage?.url) {
+    if (!coverImage?.secure_url) {
       throw new apiError(500, "Cloudinary cover image file not uploaded");
     }
   }
@@ -270,8 +270,8 @@ const updateUserAccount = asyncHandler(async (req, res) => {
   if (fullName) updateField.fullName = fullName;
   if (email) updateField.email = email;
   if (description) updateField.description = description;
-  if (avatar?.url) updateField.avatar = avatar.url;
-  if (coverImage?.url) updateField.coverImage = coverImage.url;
+  if (avatar?.secure_url) updateField.avatar = avatar.url;
+  if (coverImage?.secure_url) updateField.coverImage = coverImage.url;
 
   
   const user = await User.findByIdAndUpdate(

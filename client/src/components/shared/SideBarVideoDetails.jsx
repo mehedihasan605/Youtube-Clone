@@ -11,7 +11,7 @@ import {
   AiOutlineDown,
 } from "react-icons/ai";
 import { useState } from "react";
-import { NavLink } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 import { HiOutlineBars3 } from "react-icons/hi2";
 import { useGetSubscribedChannel } from "../../hooks/user/useGetSubscribedChannel";
 import { useLayoutContext } from "../../hooks/context/useLayoutContext";
@@ -22,6 +22,7 @@ import { useLayoutContext } from "../../hooks/context/useLayoutContext";
 const SideBarVideoDetails = () => {
   const { setSidebarOpen, currentUser, setOpenLogin } = useLayoutContext();
   const [showMoreSubs, setShowMoreSubs] = useState(false);
+  const navigate = useNavigate()
 
   const navigationItems = [
     { icon: AiOutlineHome, label: "Home", href: "/" },
@@ -37,6 +38,10 @@ const SideBarVideoDetails = () => {
     { icon: AiOutlineLike, label: "Liked videos", href: "/liked" },
   ].filter(Boolean);  // 🟢 false/null remove hoye jabe
 
+
+  const handleNavigateChannel = (channelId) => {
+    navigate(`/channal/${channelId}`);
+  };
 
   const { data: subscriptions } = useGetSubscribedChannel();
 
@@ -84,7 +89,7 @@ const SideBarVideoDetails = () => {
           {/* user section */}
 
           <div className="space-y-1">
-            <div className="flex items-center px-3 py-2  font-medium text-gray-900">
+            <div className="flex items-center px-3 py-2  font-medium text-[var(--foreground)]">
               You
               <AiOutlineDown className="h-4 w-4 ml-2" />
             </div>
@@ -117,6 +122,9 @@ const SideBarVideoDetails = () => {
                 .map((subscription, index) => (
                   <button
                     key={index}
+                    onClick={() =>
+                      handleNavigateChannel(subscription?.channel?.userName)
+                    }
                     className="w-full flex items-center gap-3 px-3 py-2 rounded-lg  hover:bg-[var(--secondary)]"
                   >
                     <div className="relative">

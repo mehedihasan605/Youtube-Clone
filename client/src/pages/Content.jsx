@@ -125,7 +125,7 @@ const Content = () => {
   const VideoMobileCard = ({ video }) => (
     <div className="rounded-lg shadow-sm border border-[var(--secondary)] px-3 py-6 mb-4">
       <div className="flex gap-3 items-center">
-        <div className="relative" style={{ width: '128px', height: '80px' }}>
+        <div className="relative h-20">
           <div className="rounded-lg overflow-hidden w-full h-full">
             <img
               src={video.thumbnail}
