@@ -50,7 +50,7 @@ A full-stack YouTube clone built with a React client and an Express server. The 
 - Comments: CRUD for videos and tweets
 - Likes & Dislikes: toggle for videos/tweets/comments
 - Watch History and Watch Later management
-- Healthcheck and Dashboard stats
+- Dashboard stats
 
 ## 📡 API Surface (Base: `/api/v1`)
 
@@ -65,7 +65,6 @@ A full-stack YouTube clone built with a React client and an Express server. The 
 - `/watchlater` – watch-later routes
 - `/watched` – watch-history routes
 - `/dashboard` – dashboard stats
-- `/healthcheck` – health status
 
 ## 🚀 Getting Started
 
